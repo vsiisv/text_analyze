@@ -2,7 +2,6 @@ import string
 
 
 def remove_punctuation(text):
-    text = text.lower()
     punctuation = string.punctuation
     for char in text:
         if char in punctuation:
@@ -10,20 +9,13 @@ def remove_punctuation(text):
     return text
 
 
-def get_words_count(text):
-    text = text.lower()
-    count = 0
-    for _ in text.split():
-        count += 1
-
-    return count
+def get_words_count(list):
+    return len(list)
 
 
-def get_most_long_word(text):
-    words = text.split()
+def get_most_long_word(list_of_words):
     longest_word = ""
-
-    for word in words:
+    for word in list_of_words:
         if len(word) > len(longest_word):
             longest_word = word
 
@@ -31,7 +23,6 @@ def get_most_long_word(text):
 
 
 def get_vowels_count(text):
-    text = text.lower()
     vowels_count = 0
     vowels = ["а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я"]
     for vowel in text:
@@ -41,12 +32,9 @@ def get_vowels_count(text):
     return vowels_count
 
 
-def get_count_repeated_words(text):
-    text = text.lower()
-    words = text.split()
+def get_count_repeated_words(list_of_words):
     dictionary = {}
-
-    for word in words:
+    for word in list_of_words:
         dictionary[word] = dictionary[word] + 1 if word in dictionary else 1
 
     return dictionary
@@ -59,19 +47,21 @@ def output_format(dict_of_words):
 
 
 def main():
-    text = input("Введите текст: ")
+    text = input("Введите текст: ").lower()
+    list_of_words = text.split()
+
     text = remove_punctuation(text)
-    words_count = get_words_count(text)
-    most_long_word = get_most_long_word(text)
+    words_count = get_words_count(list_of_words)
+    most_long_word = get_most_long_word(list_of_words)
     vowels_count = get_vowels_count(text)
-    repeated_words = get_count_repeated_words(text)
+    repeated_words = get_count_repeated_words(list_of_words)
 
     print(f"""
         Количество слов в тексте: {words_count}
         Самое длинное слово: {most_long_word}
         Количество гласных: {vowels_count}
     """)
-    {output_format(repeated_words)}
+    output_format(repeated_words)
 
 
 main()
