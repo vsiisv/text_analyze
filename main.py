@@ -52,8 +52,9 @@ def get_count_repeated_words(text):
     return dictionary
 
 
-def output_format(list_of_words):
-    for word, count in list_of_words.items():
+def output_format(dict_of_words):
+    print("Слова, по количеству повторений:")
+    for word, count in dict_of_words.items():
         print(f"{word}: {count}")
 
 
@@ -66,11 +67,11 @@ def main():
     repeated_words = get_count_repeated_words(text)
 
     print(f"""
-        Количество слов в тексте: {words_count}\n
+        Количество слов в тексте: {words_count}
         Самое длинное слово: {most_long_word}
         Количество гласных: {vowels_count}
     """)
-    output_format(repeated_words)
+    {output_format(repeated_words)}
 
 
 main()
