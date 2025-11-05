@@ -9,10 +9,6 @@ def remove_punctuation(text):
     return text
 
 
-def get_words_count(list):
-    return len(list)
-
-
 def get_most_long_word(list_of_words):
     longest_word = ""
     for word in list_of_words:
@@ -51,7 +47,7 @@ def main():
     list_of_words = text.split()
 
     text = remove_punctuation(text)
-    words_count = get_words_count(list_of_words)
+    words_count = len(list_of_words)
     most_long_word = get_most_long_word(list_of_words)
     vowels_count = get_vowels_count(text)
     repeated_words = get_count_repeated_words(list_of_words)
